@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Demo AJAX</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div id="respuesta"></div>
+    <button class="boton">AJAX!</button>
+    <script type="text/javascript">
+      var index = 1;
+      $(".boton").click(function () {
+        // POST AJAX
+        $.post(
+          "https://jsonplaceholder.typicode.com/posts",
+          {
+            id: 1,
+            title: "Cohorte FT32b",
+            body: "Este es nuestro primer post!!!",
+            userId: 1,
+          },
+          function (data) {
+            console.log(data);
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

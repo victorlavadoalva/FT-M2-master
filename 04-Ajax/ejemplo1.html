@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Demo AJAX</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div id="respuesta"></div>
+    <button class="boton">AJAX!</button>
+    <script type="text/javascript">
+      var index = 1;
+      $(".boton").click(function () {
+        // GET AJAX
+        $.get(
+          `https://jsonplaceholder.typicode.com/photos/${index}`,
+          function (data) {
+            // vanilla javascript
+            console.log(data);
+            let div = document.createElement("div");
+            let h3 = document.createElement("h3");
+            let img = document.createElement("img");
+            h3.innerHTML = data.title;
+            img.src = data.thumbnailUrl;
+            div.appendChild(h3);
+            div.appendChild(img);
+            document.body.appendChild(div);
+
+            index++;
+          }
+        );
+      });
+    </script>
+  </body>
+</html>
