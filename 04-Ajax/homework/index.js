@@ -32,6 +32,7 @@ $('#delete').click(() => {
     $.get(direccion+`/${id}`, res => {
         nombre = res.name;
     })
+    
     $.ajax({
     url: direccion+`/${id}`,
     type: 'DELETE',
