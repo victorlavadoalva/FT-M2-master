@@ -6,10 +6,3 @@ module.exports = {
     }
   }
 
-module.exports = {
-  entry: './browser/whiteboard.js',
-  output: {
-    path: __dirname + '/browser',
-    filename: 'bundle.js'
-  }
-}
