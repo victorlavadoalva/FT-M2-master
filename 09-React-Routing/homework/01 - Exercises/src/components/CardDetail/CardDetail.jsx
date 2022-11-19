@@ -1,7 +1,18 @@
 import React from "react";
 import styles from "./CardDetail.module.css";
+import {useParams, useNavigate, NavLink} from "react-router-dom"
+//useParams -> CAptar datos desde url
+//useNavigate -> Permite navegar entre rutas
 
 export default function CardDetail() {
+  
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const backToHome = () =>{
+    navigate("/");
+  }
+
   const [cruiseDetail, setCruiseDetail] = React.useState({});
   React.useEffect(() => {
     //eslint-disable-next-line
@@ -17,7 +28,10 @@ export default function CardDetail() {
 
   return (
     <div className={styles.container}>
-      <button className={styles.buttonBack}>
+      <button 
+        className={styles.buttonBack} 
+        onClick={backToHome}
+      >
         Volver
       </button>
 
