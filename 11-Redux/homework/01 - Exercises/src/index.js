@@ -36,3 +36,26 @@ document.querySelector("#decremento").addEventListener(
     store.dispatch(decremento()); //quiero pasar el objeto que retorna incremento()
   }
 );
+
+const incrementoImpar = () => {
+  const currentState = store.getState().contador;
+  if(currentState % 2 !== 0){
+    store.dispatch(incremento());
+  }
+}
+
+document.querySelector("#incrementoImpar").addEventListener(
+  "click", () => {
+    incrementoImpar();  
+  }
+);
+
+const incrementoAsync = () => {
+  setTimeout(() => store.dispatch(incremento()), 4000) //se pasa como cb para que no ejecute rapido
+}
+
+document.querySelector("#incrementoAsync").addEventListener(
+  "click", () => {
+    incrementoAsync();  
+  }
+);
